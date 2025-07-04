@@ -47,13 +47,13 @@
 - **Goal:** From raw page text, extract structured details into `CompanyRecord` instances.  
 - **Workflow:**  
   - **NER**  
-    `transformers.pipeline("ner", model="dslim/bert-base-NER")` to find `ORG` & `LOC` entities in first 2 000 chars.  
+    `transformers.pipeline("ner", model="dslim/bert-base-NER")` to find `ORG` & `LOC` entities in first 20000 chars.  
   - **Heuristics**  
     - Take first `ORG` as company name  
     - Regex for 6-digit PIN code → snippet for address  
     - Regex for phone & email  
   - **Industry Scoring**  
-    `zero-shot-classification` with `facebook/bart-large-mnli`, input: first 1 000 chars, candidate: the input industry → `score[0]`.  
+    `zero-shot-classification` with `facebook/bart-large-mnli`, input: first 10000 chars, candidate: the input industry → `score[0]`.  
 - **Why These Models:**  
   - `dslim/bert-base-NER`: pre-trained on CoNLL-2003, good ORG/LOC accuracy  
   - `bart-large-mnli`: SOTA zero-shot classification, maps any text to a candidate label without fine-tuning  
