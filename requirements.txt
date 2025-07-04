@@ -1,0 +1,16 @@
+
+aiohttp>=3.9
+beautifulsoup4>=4.12
+hdbscan>=0.8
+nltk>=3.8
+pandas>=2.2
+playwright>=1.43
+python>=3.10
+rich>=13.7
+scikit-learn>=1.5
+sentence-transformers>=2.7
+tenacity>=8.3
+typer[all]>=0.12
+python-dotenv>=0.21.0
+torch>=2.3
+transformers>=4.41
